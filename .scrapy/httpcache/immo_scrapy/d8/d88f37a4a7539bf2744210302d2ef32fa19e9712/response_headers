@@ -1,0 +1,9 @@
+Cache-Control: max-age=0, must-revalidate, private
+Content-Encoding: gzip
+Content-Type: text/html; charset=UTF-8
+Date: Mon, 20 Oct 2025 13:04:13 GMT
+Expires: Mon, 20 Oct 2025 13:04:13 GMT
+Link: </assets/fonts/urbanist/Urbanist-VariableFont_wght-017469a87d76ebe98511d03ce8388a93.ttf>; rel="preload"; as="font"; crossorigin="anonymous",</assets/fonts/urbanist/Urbanist-Italic-VariableFont_wght-25dca7e3215904ab1faeef96bd1fe072.ttf>; rel="preload"; as="font"; crossorigin="anonymous",</media/images/agences/biens/864/vente/exclusivite-filigrane-e97eeff3-a308-4d34-a86d-bb70f3a829bd-15250768047875601815.webp>; rel="preload"; as="image",</assets/styles/app-1fd3e7b6fa1d8aaf2adc3134aa10e2d4.css>; rel="preload"; as="style",</assets/styles/components/map-4bc05ce3fc202b80c64c122bc60161a9.css>; rel="preload"; as="style",</assets/vendor/swiper/swiper-bundle.min-cf0e5c662c5c64183b3e4f2ca63b9c0c.css>; rel="preload"; as="style",</assets/styles/components/change-swiper-a909e9611145e77add816b967a80e88f.css>; rel="preload"; as="style"
+Permissions-Policy: browsing-topics=()
+Server: Caddy
+Vary: Accept-Encoding

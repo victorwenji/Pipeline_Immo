@@ -1,0 +1,69 @@
+[
+  {
+    "url": "https://www.citya.com/annonces/vente/appartement/tours-37261/TAPP924141A",
+    "date_extraction": "2025-10-21T12:50:34.844503",
+    "titre": "Appartement à vendre 3 pièces 71m²\n Tours (37200)",
+    "prix": "225 000 € à partir de 921 €/mois",
+    "ville": "Tours (37200)",
+    "ges": "8",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 921 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/appartement/saint-maximin-60740/TAPP923679",
+    "date_extraction": "2025-10-21T12:50:46.693565",
+    "titre": "Appartement à vendre 3 pièces 59.86m²\n Saint-Maximin (60740)",
+    "prix": "150 000 € à partir de 614 €/mois",
+    "ville": "Saint-Maximin (60740)",
+    "ges": "8",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 614 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/appartement/agen-47000/TAPP944510",
+    "date_extraction": "2025-10-21T12:50:55.266072",
+    "titre": "Appartement à vendre 2 pièces 55m²\n Agen (47000)",
+    "prix": "104 000 € à partir de 426 €/mois",
+    "ville": "Agen (47000)",
+    "ges": "7",
+    "photos": [
+      "https://www.citya.com/dpe/0/350",
+      "https://www.citya.com/ges/0/350",
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 3,
+    "charges": "à partir de 426 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/maison/cholet-49300/TMAI154806",
+    "date_extraction": "2025-10-21T12:51:03.823580",
+    "titre": "Maison à vendre 5 pièces 90m²\n Cholet (49300)",
+    "prix": "256 000 € à partir de 1 048 €/mois",
+    "ville": "Cholet (49300)",
+    "ges": "18",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 1 048 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/maison/chateauroux-36000/TMAI153002",
+    "date_extraction": "2025-10-21T12:51:12.452776",
+    "titre": "Maison à vendre 5 pièces 111m²\n Châteauroux (36000)",
+    "prix": "164 000 € à partir de 672 €/mois",
+    "ville": "Châteauroux (36000)",
+    "ges": "19",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 672 €/mois"
+  }
+]
