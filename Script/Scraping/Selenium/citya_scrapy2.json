@@ -1,0 +1,123 @@
+[
+  {
+    "url": "https://www.citya.com/annonces/vente/appartement/charleville-mezieres-08000/TAPP958728",
+    "date_extraction": "2025-10-22T12:30:17.208031",
+    "titre": "Appartement à vendre 3 pièces 67.34m²\n Charleville-Mézières (08000)",
+    "prix": "38 000 € à partir de 156 €/mois",
+    "ville": "Charleville-Mézières (08000)",
+    "ges": "8",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 156 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/immobilier/nos-guides/location/maison-ancienne",
+    "date_extraction": "2025-10-22T12:30:25.620242",
+    "titre": "Maison ancienne",
+    "description": "Une maison ancienne est un bien immobilier qui a fait l’objet d’une mutation ou d’un transfert de propriété. Autrement dit, le logement a déjà été cédé. Acheter une maison ou un appartement de plus de cinq ans est également un achat ancien.",
+    "photos": [
+      "https://www.citya.com/media/images/guides/bannieres/610ab9c37d93d665535922.jpg"
+    ],
+    "nombre_photos": 1
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/appartement/aix-en-provence-13001/TAPP957159",
+    "date_extraction": "2025-10-22T12:30:33.909356",
+    "titre": "Appartement à vendre 1 pièce\n Aix-en-Provence (13100)",
+    "prix": "153 000 € à partir de 627 €/mois",
+    "ville": "Aix-en-Provence (13100)",
+    "ges": "7",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 627 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/appartement/cannes-06029/TAPP511897",
+    "date_extraction": "2025-10-22T12:30:42.272265",
+    "titre": "Appartement à vendre 2 pièces 44m²\n Cannes (06400)",
+    "prix": "198 000 € à partir de 811 €/mois",
+    "ville": "Cannes (06400)",
+    "ges": "8",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 811 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/maison/cherbourg-en-cotentin-50129/TMAI155301",
+    "date_extraction": "2025-10-22T12:30:50.566505",
+    "titre": "Maison à vendre 5 pièces 110m²\n Cherbourg-en-Cotentin (50100)",
+    "prix": "298 000 € à partir de 1 220 €/mois",
+    "ville": "Cherbourg-en-Cotentin (50100)",
+    "ges": "8",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 1 220 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/sete-34200/GES70310184-506",
+    "date_extraction": "2025-10-22T12:31:05.090064",
+    "titre": "Appartement à louer 2 pièces 45.75m²\n Sète (34200)",
+    "prix": "750 € / mois charges comprises",
+    "ville": "Sète (34200)",
+    "ges": "7",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/maison",
+    "date_extraction": "2025-10-22T12:31:13.610089",
+    "titre": "Location immobilière maison : Trouvez votre bien avec Citya",
+    "description": "Pour de nombreux Français, la location d’une maison représente une bien meilleure option que l'achat d'une résidence principale. Que la location soit pour vous une solution temporaire ou permanente, faites-vous guider par nos agences Citya pour réussir à trouver une maison qui vous conviendra en tous points.",
+    "ges": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/douai-59500/LAPP5113324",
+    "date_extraction": "2025-10-22T12:31:21.867715",
+    "titre": "Appartement à louer 3 pièces\n Douai (59500)",
+    "prix": "700 € / mois charges comprises",
+    "ville": "Douai (59500)",
+    "ges": "4",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/grenoble-38185/GES71200037-216",
+    "date_extraction": "2025-10-22T12:31:30.098187",
+    "titre": "Appartement à louer 3 pièces 57m²\n Grenoble (38000)",
+    "prix": "860 € / mois charges comprises",
+    "ville": "Grenoble (38000)",
+    "ges": "10",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/bordeaux-33063/GES80130001-198",
+    "date_extraction": "2025-10-22T12:31:38.567736",
+    "titre": "Appartement à louer 2 pièces 41.2m²\n Bordeaux (33200)",
+    "prix": "867 € / mois charges comprises",
+    "ville": "Bordeaux (33200)",
+    "ges": "9",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  }
+]

@@ -1,0 +1,660 @@
+[
+  {
+    "url": "https://www.citya.com/annonces/vente/maison/assay-37120/TMAI155556",
+    "date_extraction": "2025-10-27T09:18:01.874836",
+    "titre": "Maison à vendre 3 pièces 86.5m²\n Assay (37120)",
+    "prix": "183 000 € à partir de 749 €/mois",
+    "ville": "Assay (37120)",
+    "ges": "22",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 749 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/maison/cholet-49300/TMAI152300",
+    "date_extraction": "2025-10-27T09:18:10.873145",
+    "titre": "Maison à vendre 5 pièces 101m²\n Cholet (49300)",
+    "prix": "193 000 € à partir de 790 €/mois",
+    "ville": "Cholet (49300)",
+    "ges": "13",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 790 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/appartement/thiais-94320/TAPP959154",
+    "date_extraction": "2025-10-27T09:18:19.911173",
+    "titre": "Appartement à vendre 4 pièces 72.23m²\n Thiais (94320)",
+    "prix": "387 000 € à partir de 1 585 €/mois",
+    "ville": "Thiais (94320)",
+    "ges": "3",
+    "photos": [
+      "https://www.citya.com/dpe/0/350",
+      "https://www.citya.com/ges/0/350",
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 3,
+    "charges": "à partir de 1 585 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/immobilier/nos-guides/location/maison-ancienne",
+    "date_extraction": "2025-10-27T09:18:28.250651",
+    "titre": "Maison ancienne",
+    "description": "Une maison ancienne est un bien immobilier qui a fait l’objet d’une mutation ou d’un transfert de propriété. Autrement dit, le logement a déjà été cédé. Acheter une maison ou un appartement de plus de cinq ans est également un achat ancien.",
+    "photos": [
+      "https://www.citya.com/media/images/guides/bannieres/610ab9c37d93d665535922.jpg"
+    ],
+    "nombre_photos": 1
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/appartement/cannes-06029/TAPP511897",
+    "date_extraction": "2025-10-27T09:18:37.408615",
+    "titre": "Appartement à vendre 2 pièces 44m²\n Cannes (06400)",
+    "prix": "198 000 € à partir de 811 €/mois",
+    "ville": "Cannes (06400)",
+    "ges": "8",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 811 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/appartement/roquebrune-cap-martin-06190/TAPP924489",
+    "date_extraction": "2025-10-27T09:18:45.947445",
+    "titre": "Appartement à vendre 2 pièces 46.56m²\n Roquebrune-Cap-Martin (06190)",
+    "prix": "262 000 € à partir de 1 073 €/mois",
+    "ville": "Roquebrune-Cap-Martin (06190)",
+    "ges": "14",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 1 073 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/appartement/le-petit-quevilly-76140/TAPP959192",
+    "date_extraction": "2025-10-27T09:18:54.479165",
+    "titre": "Appartement à vendre 2 pièces 44m²\n Le Petit-Quevilly (76140)",
+    "prix": "149 500 € à partir de 612 €/mois",
+    "ville": "Le Petit-Quevilly (76140)",
+    "ges": "5",
+    "photos": [
+      "https://www.citya.com/dpe/0/350",
+      "https://www.citya.com/ges/0/350",
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 3,
+    "charges": "à partir de 612 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/appartement/seloncourt-25230/TAPP953954",
+    "date_extraction": "2025-10-27T09:19:03.203107",
+    "titre": "Appartement à vendre 2 pièces 48.22m²\n Seloncourt (25230)",
+    "prix": "66 700 € à partir de 273 €/mois",
+    "ville": "Seloncourt (25230)",
+    "ges": "7",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 273 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/maison/chateauroux-36000/TMAI153002",
+    "date_extraction": "2025-10-27T09:19:12.248102",
+    "titre": "Maison à vendre 5 pièces 111m²\n Châteauroux (36000)",
+    "prix": "164 000 € à partir de 672 €/mois",
+    "ville": "Châteauroux (36000)",
+    "ges": "19",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 672 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/appartement/bordeaux-33063/TAPP923582",
+    "date_extraction": "2025-10-27T09:19:20.673660",
+    "titre": "Appartement à vendre 2 pièces 41m²\n Bordeaux (33000)",
+    "prix": "163 000 € à partir de 668 €/mois",
+    "ville": "Bordeaux (33000)",
+    "ges": "4",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 668 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/appartement/saint-brieuc-22000/TAPP937528",
+    "date_extraction": "2025-10-27T09:19:29.430691",
+    "titre": "Appartement à vendre 6 pièces 168m²\n Saint-Brieuc (22000)",
+    "prix": "448 000 € à partir de 1 835 €/mois",
+    "ville": "Saint-Brieuc (22000)",
+    "ges": "12",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 1 835 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/terrain/frejus-83061/TTER103450",
+    "date_extraction": "2025-10-27T09:19:38.048425",
+    "titre": "Terrain à vendre 204m²\n Fréjus (83370)",
+    "prix": "67 000 € à partir de 274 €/mois",
+    "ville": "Fréjus (83370)",
+    "ges": "11",
+    "photos": [
+      "https://www.citya.com/dpe/0/350",
+      "https://www.citya.com/ges/0/350",
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 3,
+    "charges": "à partir de 274 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/appartement/vitry-sur-seine-94400/TAPP954091",
+    "date_extraction": "2025-10-27T09:19:46.762875",
+    "titre": "Appartement à vendre 3 pièces 50m²\n Vitry-sur-Seine (94400)",
+    "prix": "215 000 € à partir de 880 €/mois",
+    "ville": "Vitry-sur-Seine (94400)",
+    "ges": "3",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 880 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/immobilier-professionnel/port-de-bouc-13110/TLOC104649",
+    "date_extraction": "2025-10-27T09:19:55.646475",
+    "titre": "Local commercial à vendre 166m²\n Port-de-Bouc (13110)",
+    "prix": "199 000 € à partir de 815 €/mois",
+    "ville": "Port-de-Bouc (13110)",
+    "ges": "6",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 815 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/maison/balaruc-les-bains-34540/TMAI155508",
+    "date_extraction": "2025-10-27T09:20:04.545574",
+    "titre": "Maison à vendre 5 pièces 126m²\n Balaruc-les-Bains (34540)",
+    "prix": "350 000 € à partir de 1 433 €/mois",
+    "ville": "Balaruc-les-Bains (34540)",
+    "ges": "12",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 1 433 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/maison/limoges-87085/TMAI155552",
+    "date_extraction": "2025-10-27T09:20:13.600828",
+    "titre": "Maison à vendre 3 pièces 75.86m²\n Limoges (87100)",
+    "prix": "199 000 € à partir de 815 €/mois",
+    "ville": "Limoges (87100)",
+    "ges": "9",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 815 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/appartement/thiais-94320/TAPP959143",
+    "date_extraction": "2025-10-27T09:20:22.684706",
+    "titre": "Appartement à vendre 3 pièces 57.21m²\n Thiais (94320)",
+    "prix": "296 000 € à partir de 1 212 €/mois",
+    "ville": "Thiais (94320)",
+    "ges": "3",
+    "photos": [
+      "https://www.citya.com/dpe/0/350",
+      "https://www.citya.com/ges/0/350",
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 3,
+    "charges": "à partir de 1 212 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/appartement/sete-34200/TAPP959141",
+    "date_extraction": "2025-10-27T09:20:32.019347",
+    "titre": "Appartement à vendre 3 pièces 67m²\n Sète (34200)",
+    "prix": "177 500 € à partir de 727 €/mois",
+    "ville": "Sète (34200)",
+    "ges": "8",
+    "photos": [
+      "https://www.citya.com/dpe/192/350",
+      "https://www.citya.com/ges/10/350",
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 3,
+    "charges": "à partir de 727 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/appartement/la-rochelle-17000/TAPP959030",
+    "date_extraction": "2025-10-27T09:20:41.084592",
+    "titre": "Appartement à vendre 1 pièce 31m²\n La Rochelle (17000)",
+    "prix": "199 000 € à partir de 815 €/mois",
+    "ville": "La Rochelle (17000)",
+    "ges": "6",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 815 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/appartement/tours-37261/TAPP924141A",
+    "date_extraction": "2025-10-27T09:20:50.519099",
+    "titre": "Appartement à vendre 3 pièces 71m²\n Tours (37200)",
+    "prix": "225 000 € à partir de 921 €/mois",
+    "ville": "Tours (37200)",
+    "ges": "8",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 921 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/appartement/darnetal-76160/TAPP959180",
+    "date_extraction": "2025-10-27T09:21:00.153877",
+    "titre": "Appartement à vendre 2 pièces 43m²\n Darnétal (76160)",
+    "prix": "139 000 € à partir de 569 €/mois",
+    "ville": "Darnétal (76160)",
+    "ges": "1",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 569 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/appartement/avion-62210/TAPP943793",
+    "date_extraction": "2025-10-27T09:21:09.350756",
+    "titre": "Appartement à vendre 3 pièces 60.5m²\n Avion (62210)",
+    "prix": "88 000 € à partir de 360 €/mois",
+    "ville": "Avion (62210)",
+    "ges": "14",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 360 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/appartement/beauvais-60000/TAPP958994",
+    "date_extraction": "2025-10-27T09:21:18.107980",
+    "titre": "Appartement à vendre 3 pièces 46.64m²\n Beauvais (60000)",
+    "prix": "127 000 € à partir de 520 €/mois",
+    "ville": "Beauvais (60000)",
+    "ges": "4",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 520 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/appartement/sete-34200/TAPP947117",
+    "date_extraction": "2025-10-27T09:21:26.925569",
+    "titre": "Appartement à vendre 2 pièces 48.04m²\n Sète (34200)",
+    "prix": "169 000 € à partir de 692 €/mois",
+    "ville": "Sète (34200)",
+    "ges": "6",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 692 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/vente/appartement/cholet-49300/TAPP933725",
+    "date_extraction": "2025-10-27T09:21:35.348532",
+    "titre": "Appartement à vendre 4 pièces 73.13m²\n Cholet (49300)",
+    "prix": "132 000 € à partir de 541 €/mois",
+    "ville": "Cholet (49300)",
+    "ges": "9",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "à partir de 541 €/mois"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/saint-brieuc-22000/GES88240412-872",
+    "date_extraction": "2025-10-27T09:21:48.428529",
+    "titre": "Appartement à louer 3 pièces 48.51m²\n Saint-Brieuc (22000)",
+    "prix": "675 € / mois charges comprises",
+    "ville": "Saint-Brieuc (22000)",
+    "ges": "1",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/auray-56400/GES15390005-875",
+    "date_extraction": "2025-10-27T09:21:56.888399",
+    "titre": "Appartement à louer 1 pièce 28.14m²\n Auray (56400)",
+    "prix": "470 € / mois charges comprises",
+    "ville": "Auray (56400)",
+    "ges": "4",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/bordeaux-33063/GES62380087-198",
+    "date_extraction": "2025-10-27T09:22:05.263796",
+    "titre": "Appartement à louer 1 pièce 30.83m²\n Bordeaux (33000)",
+    "prix": "640,46 € / mois charges comprises",
+    "ville": "Bordeaux (33000)",
+    "ges": "4",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/irigny-69540/GES19570004-746",
+    "date_extraction": "2025-10-27T09:22:13.629925",
+    "titre": "Appartement à louer 3 pièces 82.37m²\n Irigny (69540)",
+    "prix": "925 € / mois charges comprises",
+    "ville": "Irigny (69540)",
+    "ges": "11",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/saint-fargeau-ponthierry-77310/GES33709006-530",
+    "date_extraction": "2025-10-27T09:22:21.909776",
+    "titre": "Appartement à louer 2 pièces 40m²\n Saint-Fargeau-Ponthierry (77310)",
+    "prix": "695 € / mois charges comprises",
+    "ville": "Saint-Fargeau-Ponthierry (77310)",
+    "ges": "4",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/metz-57463/GES01880008-998",
+    "date_extraction": "2025-10-27T09:22:30.371627",
+    "titre": "Appartement à louer 2 pièces 41.02m²\n Metz (57000)",
+    "prix": "573,91 € / mois charges comprises",
+    "ville": "Metz (57000)",
+    "ges": "1",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/toulouse-31555/GES85750011-297",
+    "date_extraction": "2025-10-27T09:22:38.932920",
+    "titre": "Appartement à louer 2 pièces 42.01m²\n Toulouse (31200)",
+    "prix": "565,83 € / mois charges comprises",
+    "ville": "Toulouse (31200)",
+    "ges": "2",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/lille-59350/GES00900459-797",
+    "date_extraction": "2025-10-27T09:22:47.407584",
+    "titre": "Appartement à louer 3 pièces 62.6m²\n Lille (59000)",
+    "prix": "913 € / mois charges comprises",
+    "ville": "Lille (59000)",
+    "ges": "7",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/maison",
+    "date_extraction": "2025-10-27T09:22:56.088057",
+    "titre": "Location immobilière maison : Trouvez votre bien avec Citya",
+    "description": "Pour de nombreux Français, la location d’une maison représente une bien meilleure option que l'achat d'une résidence principale. Que la location soit pour vous une solution temporaire ou permanente, faites-vous guider par nos agences Citya pour réussir à trouver une maison qui vous conviendra en tous points.",
+    "ges": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/bourg-en-bresse-01000/GES28260052-218",
+    "date_extraction": "2025-10-27T09:23:04.586947",
+    "titre": "Appartement à louer 1 pièce 23.16m²\n Bourg-en-Bresse (01000)",
+    "prix": "429 € / mois charges comprises",
+    "ville": "Bourg-en-Bresse (01000)",
+    "ges": "4",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/arpajon-91290/GES53360020-640",
+    "date_extraction": "2025-10-27T09:23:13.063003",
+    "titre": "Appartement à louer 2 pièces 34.3m²\n Arpajon (91290)",
+    "prix": "707 € / mois charges comprises",
+    "ville": "Arpajon (91290)",
+    "ges": "9",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/launaguet-31140/GES02200502-565",
+    "date_extraction": "2025-10-27T09:23:21.550098",
+    "titre": "Appartement à louer 2 pièces 44.54m²\n Launaguet (31140)",
+    "prix": "587,43 € / mois charges comprises",
+    "ville": "Launaguet (31140)",
+    "ges": "14",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/maisons-alfort-94700/GES03500021-478",
+    "date_extraction": "2025-10-27T09:23:30.073904",
+    "titre": "Appartement à louer 2 pièces 39.02m²\n Maisons-Alfort (94700)",
+    "prix": "934,06 € / mois charges comprises",
+    "ville": "Maisons-Alfort (94700)",
+    "ges": "9",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/blois-41000/GES70311222-245",
+    "date_extraction": "2025-10-27T09:23:38.735664",
+    "titre": "Appartement à louer 2 pièces 37.65m²\n Blois (41000)",
+    "prix": "444 € / mois charges comprises",
+    "ville": "Blois (41000)",
+    "ges": "4",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/avignon-84007/GES50790004-71",
+    "date_extraction": "2025-10-27T09:23:47.312452",
+    "titre": "Appartement à louer 1 pièce 20.6m²\n Avignon (84000)",
+    "prix": "450 € / mois charges comprises",
+    "ville": "Avignon (84000)",
+    "ges": "9",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement",
+    "date_extraction": "2025-10-27T09:23:55.876597",
+    "titre": "Location immobilière appartement : Trouvez votre bien avec Citya",
+    "description": "Vous recherchez un logement en location pour pouvoir vous installer dans la ville où vous voulez. Votre choix s’est porté sur un bel appartement, car il s’agit du bien le plus répandu en zone urbaine. Laissez-vous tenter par nos annonces en choisissant la location immobilière qui vous correspond.",
+    "ges": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/la-madeleine-59110/GES34441041-797",
+    "date_extraction": "2025-10-27T09:24:04.395453",
+    "titre": "Appartement à louer 2 pièces 33.67m²\n La Madeleine (59110)",
+    "prix": "691 € / mois charges comprises",
+    "ville": "La Madeleine (59110)",
+    "ges": "5",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/bormes-les-mimosas-83230/GES48130048-138",
+    "date_extraction": "2025-10-27T09:24:12.962383",
+    "titre": "Appartement à louer 2 pièces 44.55m²\n Bormes-les-Mimosas (83230)",
+    "prix": "754,77 € / mois charges comprises",
+    "ville": "Bormes-les-Mimosas (83230)",
+    "ges": "2",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/avignon-84007/GES90260016-71",
+    "date_extraction": "2025-10-27T09:24:21.910491",
+    "titre": "Appartement à louer 2 pièces 44.52m²\n Avignon (84000)",
+    "prix": "615,30 € / mois charges comprises",
+    "ville": "Avignon (84000)",
+    "ges": "6",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/juvisy-sur-orge-91260/GES05540064-530",
+    "date_extraction": "2025-10-27T09:24:30.226422",
+    "titre": "Appartement à louer 2 pièces 45.68m²\n Juvisy-sur-Orge (91260)",
+    "prix": "827 € / mois charges comprises",
+    "ville": "Juvisy-sur-Orge (91260)",
+    "ges": "6",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/aix-en-provence-13001/GES30450011-61",
+    "date_extraction": "2025-10-27T09:24:38.653253",
+    "titre": "Appartement à louer 2 pièces 40m²\n Aix-en-Provence (13090)",
+    "prix": "818,29 € / mois charges comprises",
+    "ville": "Aix-en-Provence (13090)",
+    "ges": "4",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/caen-14000/LAPP5113365",
+    "date_extraction": "2025-10-27T09:24:47.075902",
+    "titre": "Appartement à louer 1 pièce\n Caen (14000)",
+    "prix": "570 € / mois charges comprises",
+    "ville": "Caen (14000)",
+    "ges": "7",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/blois-41000/GES51160006-245",
+    "date_extraction": "2025-10-27T09:24:55.467020",
+    "titre": "Appartement à louer 2 pièces 30m²\n Blois (41000)",
+    "prix": "375 € / mois charges comprises",
+    "ville": "Blois (41000)",
+    "ges": "5",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/albi-81000/GES06900203-269",
+    "date_extraction": "2025-10-27T09:25:03.723007",
+    "titre": "Appartement à louer 3 pièces 70.06m²\n Albi (81000)",
+    "prix": "735,53 € / mois charges comprises",
+    "ville": "Albi (81000)",
+    "ges": "8",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/balma-31130/GES80181534-51",
+    "date_extraction": "2025-10-27T09:25:11.992959",
+    "titre": "Appartement à louer 3 pièces 59.29m²\n Balma (31130)",
+    "prix": "836,62 € / mois charges comprises",
+    "ville": "Balma (31130)",
+    "ges": "10",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  },
+  {
+    "url": "https://www.citya.com/annonces/location/appartement/boujan-sur-libron-34760/GES00900173-47",
+    "date_extraction": "2025-10-27T09:25:20.309240",
+    "titre": "Appartement à louer 2 pièces 40.84m²\n Boujan-sur-Libron (34760)",
+    "prix": "571 € / mois charges comprises",
+    "ville": "Boujan-sur-Libron (34760)",
+    "ges": "6",
+    "photos": [
+      "https://www.citya.com/assets/media/images/vesta-cfdf0bc3582f64c96bd62b4d9cd4a162.webp"
+    ],
+    "nombre_photos": 1,
+    "charges": "/ mois charges comprises"
+  }
+]

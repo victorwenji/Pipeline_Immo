@@ -1,9 +1,0 @@
-Cache-Control: max-age=0, must-revalidate, private
-Content-Encoding: gzip
-Content-Type: text/html; charset=UTF-8
-Date: Mon, 20 Oct 2025 13:03:31 GMT
-Expires: Mon, 20 Oct 2025 13:03:31 GMT
-Link: </assets/fonts/urbanist/Urbanist-VariableFont_wght-017469a87d76ebe98511d03ce8388a93.ttf>; rel="preload"; as="font"; crossorigin="anonymous",</assets/fonts/urbanist/Urbanist-Italic-VariableFont_wght-25dca7e3215904ab1faeef96bd1fe072.ttf>; rel="preload"; as="font"; crossorigin="anonymous",</assets/styles/app-1fd3e7b6fa1d8aaf2adc3134aa10e2d4.css>; rel="preload"; as="style"
-Permissions-Policy: browsing-topics=()
-Server: Caddy
-Vary: Accept-Encoding

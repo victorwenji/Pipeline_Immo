@@ -17,20 +17,11 @@ class CityaDataCleaner:
         self.df_clean = None
         
     def charger_donnees(self):
-        """Charger le fichier JSON"""
-        print("=" * 60)
-        print("CHARGEMENT DES DONNÉES")
-        print("=" * 60)
-        
         try:
             with open(self.json_file, 'r', encoding='utf-8') as f:
                 data = json.load(f)
             
             self.df = pd.DataFrame(data)
-            print(f"✓ {len(self.df)} annonces chargées")
-            print(f"✓ {len(self.df.columns)} colonnes trouvées")
-            print(f"\nColonnes disponibles: {', '.join(self.df.columns)}")
-            
             return True
         except FileNotFoundError:
             print(f"✗ Fichier '{self.json_file}' introuvable!")
@@ -40,11 +31,6 @@ class CityaDataCleaner:
             return False
     
     def afficher_statistiques_initiales(self):
-        """Afficher les statistiques avant nettoyage"""
-        print("\n" + "=" * 60)
-        print("STATISTIQUES INITIALES")
-        print("=" * 60)
-        
         print(f"\nNombre total d'annonces: {len(self.df)}")
         print(f"\nValeurs manquantes par colonne:")
         missing = self.df.isnull().sum()
@@ -422,14 +408,9 @@ class CityaDataCleaner:
         
         return True
 
-
-# ============================================================================
-# SCRIPT PRINCIPAL
-# ============================================================================
-
 if __name__ == '__main__':
     # Configuration
-    FICHIER_JSON = r'Data_Immo/Data_Init/citya_immobilier1.json' 
+    FICHIER_JSON = r'citya_scrapy2.json' 
     FICHIER_CSV_SORTIE = '../Pipeline_Immo/Data_Immo/Data_Init/citya_immobilier_clean.csv'
     
     # Créer l'instance du cleaner
