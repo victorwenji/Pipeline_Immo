@@ -40,7 +40,7 @@ class CityaScraper:
         except (NoSuchElementException, AttributeError):
             return None
     
-    def scraper_page_liste(self, url, max_pages=100000):
+    def scraper_page_liste(self, url, max_pages=100000): 
         """Scraper la liste des annonces et récupérer leurs URLs"""
         print(f"Accès à {url}...")
         self.driver.get(url)
@@ -92,9 +92,9 @@ class CityaScraper:
                 selecteurs_next = [
                     'a[rel="next"]',
                     'button[aria-label*="suivant"]',
-                    'a[class*="next"]',
+                    'a[class*="size-5"]',
                     '.pagination a:last-child',
-                    'a[title*="suivant"]'
+                    'a[title*="suivant"]',
                 ]
                 
                 next_button = None
@@ -239,7 +239,7 @@ class CityaScraper:
             print(f"    Erreur lors du scraping de {url}: {e}")
             return None
     
-    def scraper(self, url_base, max_annonces=100000):
+    def scraper(self, url_base, max_annonces=50):
         """Fonction principale de scraping"""
         print("=" * 60)
         print("DÉMARRAGE DU SCRAPING CITYA.COM")
@@ -250,7 +250,7 @@ class CityaScraper:
         print(f"\n{len(urls_annonces)} annonces trouvées au total")
         
         # Limiter le nombre d'annonces
-        urls_annonces = list(urls_annonces)[:100000]
+        urls_annonces = list(urls_annonces)[:max_annonces]
         print(f"Scraping de {len(urls_annonces)} annonces...\n")
         
         # 2. Scraper chaque annonce
@@ -263,7 +263,8 @@ class CityaScraper:
         
         print(f"\n{len(self.annonces)} annonces scrapées avec succès")
     
-    def sauvegarder_json(self, nom_fichier=f'citya_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json'):
+    #def sauvegarder_json(self, nom_fichier=f'citya_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json'):
+    def sauvegarder_json(self, nom_fichier=f'citya_.json'):
         """Sauvegarder les données en JSON"""
         with open(nom_fichier, 'w', encoding='utf-8') as f:
             json.dump(self.annonces, f, ensure_ascii=False, indent=2)
@@ -288,7 +289,7 @@ if __name__ == '__main__':
         
         # Scraper chaque section
         for url in urls:
-            scraper.scraper(url, max_annonces=100000)
+            scraper.scraper(url, max_annonces=5)
         
         # Sauvegarder en JSON
         scraper.sauvegarder_json()
