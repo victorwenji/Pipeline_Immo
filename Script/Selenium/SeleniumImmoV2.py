@@ -343,13 +343,13 @@ if __name__ == '__main__':
             {
                 'url': 'https://www.citya.com/annonces/vente',
                 'nom': 'Ventes',
-                'max_pages': 150,  
+                'max_pages': 20,  
                 'max_annonces': 10000  
             },
             {
                 'url': 'https://www.citya.com/annonces/location',
                 'nom': 'Locations',
-                'max_pages': 150,
+                'max_pages': 20,
                 'max_annonces': 10000
             },
         ]
