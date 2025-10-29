@@ -3,13 +3,13 @@ name: Pipeline_immo
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: "0 6 * * *"   
+    - cron: "0 6 * * *"
   push:
     paths-ignore:
-      - "**.csv"          # éviter de relancer juste à cause du CSV
+      - "**.csv"
 
 permissions:
-  contents: write         # nécessaire pour pousser avec GITHUB_TOKEN
+  contents: write
 
 jobs:
   run-pipeline:
@@ -19,31 +19,43 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0         # utile si tu dois re-écrire l’historique du CSV
-          # persist-credentials: true  # (par défaut) garde le token pour git push
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install deps
-        if: hashFiles('requirements.txt') != ''
-        run: pip install -r requirements.txt
+      # (recommandé) installe les deps depuis requirements.txt
+      - name: Install Python deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Chrome stable (utile si ton script n'utilise pas webdriver-manager)
+      - name: Install Google Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget gnupg
+          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /usr/share/keyrings/google-linux-signing-keyring.gpg
+          echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-linux-signing-keyring.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
 
       - name: Run scraping
+        env:
+          # pour forcer le headless si nécessaire dans ton code
+          CHROME_BIN: /usr/bin/google-chrome
         run: python Script/Selenium/SeleniumImmoV2.py
-        
 
       - name: Run cleaning
         run: python Script/Nettoyage/cleanerImmo.py
-    
+
       - name: Configure git author
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      
       - name: Commit CSV if changed
         id: commit
         run: |
@@ -57,6 +69,4 @@ jobs:
 
       - name: Push
         if: steps.commit.outputs.changed == 'true'
-        run: |
-          # le checkout garde GITHUB_TOKEN comme credential
-          git push origin HEAD:${GITHUB_REF#refs/heads/}
+        run: git push origin HEAD:${GITHUB_REF#refs/heads/}
