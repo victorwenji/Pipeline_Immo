@@ -43,12 +43,14 @@ jobs:
           sudo apt-get install -y google-chrome-stable
 
       - name: Run scraping
-        run: python ./Script/Selenium/SeleniumImmoV2.py
-        
+        env:
+          # pour forcer le headless si nécessaire dans ton code
+          CHROME_BIN: /usr/bin/google-chrome
+        run: python Script/Selenium/SeleniumImmoV2.py
 
       - name: Run cleaning
-        run: python ./Script/Nettoyage/cleanerImmo.py
-    
+        run: python Script/Nettoyage/cleanerImmo.py
+
       - name: Configure git author
         run: |
           git config user.name "github-actions[bot]"
