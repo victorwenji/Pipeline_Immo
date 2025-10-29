@@ -32,11 +32,11 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run scraping
-        run: python ./Script/Selenium/SeleniumImmoV2.py
+        run: python Script/Selenium/SeleniumImmoV2.py
         
 
       - name: Run cleaning
-        run: python ./Script/Nettoyage/cleanerImmo.py
+        run: python Script/Nettoyage/cleanerImmo.py
     
       - name: Configure git author
         run: |
