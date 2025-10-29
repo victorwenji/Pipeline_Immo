@@ -1,12 +1,18 @@
 
-
 import pandas as pd
 import numpy as np
 import json
 import re
+from pathlib import Path
 from datetime import datetime
 import warnings
 warnings.filterwarnings('ignore')
+
+RAW_DIR = Path(__file__).resolve().parents[2] / "Script" / "Selenium"
+PROCESSED_DIR = Path(__file__).resolve().parents[2] / "Data_Cleaner"
+PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
+INPUT_FILE = RAW_DIR / "citya_annonces.json"
+OUTPUT_FILE = PROCESSED_DIR / "citya_immobilier_clean.csv"
 
 
 class CityaDataCleaner:
@@ -17,11 +23,20 @@ class CityaDataCleaner:
         self.df_clean = None
         
     def charger_donnees(self):
+        """Charger le fichier JSON"""
+        print("=" * 60)
+        print("CHARGEMENT DES DONNÉES")
+        print("=" * 60)
+        
         try:
             with open(self.json_file, 'r', encoding='utf-8') as f:
                 data = json.load(f)
             
             self.df = pd.DataFrame(data)
+            print(f"✓ {len(self.df)} annonces chargées")
+            print(f"✓ {len(self.df.columns)} colonnes trouvées")
+            print(f"\nColonnes disponibles: {', '.join(self.df.columns)}")
+            
             return True
         except FileNotFoundError:
             print(f"✗ Fichier '{self.json_file}' introuvable!")
@@ -31,6 +46,11 @@ class CityaDataCleaner:
             return False
     
     def afficher_statistiques_initiales(self):
+        """Afficher les statistiques avant nettoyage"""
+        print("\n" + "=" * 60)
+        print("STATISTIQUES INITIALES")
+        print("=" * 60)
+        
         print(f"\nNombre total d'annonces: {len(self.df)}")
         print(f"\nValeurs manquantes par colonne:")
         missing = self.df.isnull().sum()
@@ -214,7 +234,50 @@ class CityaDataCleaner:
         
         print("\n✓ Nettoyage terminé!")
     
-    
+    def gerer_valeurs_manquantes(self):
+        """Gérer les valeurs manquantes avec différentes stratégies"""
+        print("\n" + "=" * 60)
+        print("GESTION DES VALEURS MANQUANTES")
+        print("=" * 60)
+        
+        # Stratégie 1: Remplir avec la médiane pour les valeurs numériques
+        colonnes_numeriques = ['prix_num', 'surface_m2', 'nb_pieces', 'nb_chambres', 'prix_m2']
+        
+        for col in colonnes_numeriques:
+            if col in self.df_clean.columns:
+                missing_avant = self.df_clean[col].isna().sum()
+                if missing_avant > 0:
+                    mediane = self.df_clean[col].median()
+                    # On ne remplit PAS automatiquement - on garde les NaN pour analyse
+                    print(f"\n• {col}:")
+                    print(f"  - Valeurs manquantes: {missing_avant}")
+                    print(f"  - Médiane: {mediane}")
+                    print(f"  - Min: {self.df_clean[col].min()}")
+                    print(f"  - Max: {self.df_clean[col].max()}")
+        
+        # Stratégie 2: Remplir avec 'Non renseigné' pour les chaînes
+        colonnes_texte = ['ville', 'type_bien', 'categorie_bien', 'departement']
+        
+        for col in colonnes_texte:
+            if col in self.df_clean.columns:
+                missing = self.df_clean[col].isna().sum()
+                if missing > 0:
+                    self.df_clean[col].fillna('Non renseigné', inplace=True)
+                    print(f"\n• {col}: {missing} valeurs remplacées par 'Non renseigné'")
+        
+        # Créer une colonne pour indiquer les données complètes
+        colonnes_importantes = ['prix_num', 'surface_m2', 'ville']
+        # Ne garder que les colonnes qui existent
+        colonnes_existantes = [col for col in colonnes_importantes if col in self.df_clean.columns]
+        
+        if colonnes_existantes:
+            self.df_clean['donnees_completes'] = self.df_clean[colonnes_existantes].notna().all(axis=1)
+        else:
+            self.df_clean['donnees_completes'] = False
+        
+        nb_complets = self.df_clean['donnees_completes'].sum()
+        colonnes_verifiees = ', '.join(colonnes_existantes) if colonnes_existantes else 'aucune'
+        print(f"\n✓ {nb_complets} annonces avec données complètes ({colonnes_verifiees})")
     
     def calculer_statistiques(self):
         """Calculer des statistiques avancées"""
@@ -224,39 +287,50 @@ class CityaDataCleaner:
         
         # 1. Statistiques par type de bien
         if 'categorie_bien' in self.df_clean.columns and 'prix_num' in self.df_clean.columns:
-            print("\n1. Prix moyen par type de bien:")
-            stats_type = self.df_clean.groupby('categorie_bien')['prix_num'].agg([
-                ('nombre', 'count'),
-                ('prix_moyen', 'mean'),
-                ('prix_median', 'median'),
-                ('prix_min', 'min'),
-                ('prix_max', 'max')
-            ]).round(2)
-            print(stats_type)
+            if self.df_clean['prix_num'].notna().sum() > 0:
+                print("\n1. Prix moyen par type de bien:")
+                stats_type = self.df_clean.groupby('categorie_bien')['prix_num'].agg([
+                    ('nombre', 'count'),
+                    ('prix_moyen', 'mean'),
+                    ('prix_median', 'median'),
+                    ('prix_min', 'min'),
+                    ('prix_max', 'max')
+                ]).round(2)
+                print(stats_type)
         
         # 2. Statistiques par département
         if 'departement' in self.df_clean.columns and 'prix_m2' in self.df_clean.columns:
-            print("\n2. Prix au m² moyen par département:")
-            stats_dept = self.df_clean.groupby('departement')['prix_m2'].agg([
-                ('nombre', 'count'),
-                ('prix_m2_moyen', 'mean'),
-                ('prix_m2_median', 'median')
-            ]).round(2).sort_values('prix_m2_moyen', ascending=False).head(10)
-            print(stats_dept)
+            if self.df_clean['prix_m2'].notna().sum() > 0:
+                print("\n2. Prix au m² moyen par département:")
+                stats_dept = self.df_clean.groupby('departement')['prix_m2'].agg([
+                    ('nombre', 'count'),
+                    ('prix_m2_moyen', 'mean'),
+                    ('prix_m2_median', 'median')
+                ]).round(2).sort_values('prix_m2_moyen', ascending=False).head(10)
+                print(stats_dept)
         
         # 3. Statistiques par nombre de pièces
         if 'nb_pieces' in self.df_clean.columns and 'prix_num' in self.df_clean.columns:
-            print("\n3. Prix moyen par nombre de pièces:")
-            stats_pieces = self.df_clean.groupby('nb_pieces')['prix_num'].agg([
-                ('nombre', 'count'),
-                ('prix_moyen', 'mean')
-            ]).round(2).sort_index()
-            print(stats_pieces)
+            if self.df_clean['prix_num'].notna().sum() > 0:
+                print("\n3. Prix moyen par nombre de pièces:")
+                stats_pieces = self.df_clean.groupby('nb_pieces')['prix_num'].agg([
+                    ('nombre', 'count'),
+                    ('prix_moyen', 'mean')
+                ]).round(2).sort_index()
+                print(stats_pieces)
         
         # 4. Créer des catégories de prix
+        if 'prix_num' in self.df_clean.columns and self.df_clean['prix_num'].notna().sum() > 0:
+            self.df_clean['gamme_prix'] = pd.cut(
+                self.df_clean['prix_num'],
+                bins=[0, 150000, 250000, 400000, 600000, float('inf')],
+                labels=['< 150k€', '150-250k€', '250-400k€', '400-600k€', '> 600k€']
+            )
+            print("\n4. Répartition par gamme de prix:")
+            print(self.df_clean['gamme_prix'].value_counts().sort_index())
         
         # 5. Créer des catégories de surface
-        if 'surface_m2' in self.df_clean.columns:
+        if 'surface_m2' in self.df_clean.columns and self.df_clean['surface_m2'].notna().sum() > 0:
             self.df_clean['gamme_surface'] = pd.cut(
                 self.df_clean['surface_m2'],
                 bins=[0, 40, 70, 100, 150, float('inf')],
@@ -265,14 +339,35 @@ class CityaDataCleaner:
             print("\n5. Répartition par gamme de surface:")
             print(self.df_clean['gamme_surface'].value_counts().sort_index())
         
+        # 6. Calculer des indicateurs de qualité d'annonce
+        print("\n6. Indicateurs de qualité des annonces:")
+        
+        # Score de complétude (0-100)
+        colonnes_analyse = ['prix_num', 'surface_m2', 'nb_pieces', 'ville', 
+                           'description', 'nb_photos_reel']
+        # Ne garder que les colonnes qui existent
+        colonnes_analyse_existantes = [col for col in colonnes_analyse if col in self.df_clean.columns]
+        
+        if colonnes_analyse_existantes:
+            self.df_clean['score_completude'] = (
+                self.df_clean[colonnes_analyse_existantes].notna().sum(axis=1) / len(colonnes_analyse_existantes) * 100
+            ).round(2)
+        else:
+            self.df_clean['score_completude'] = 0
+        
+        print(f"  • Score moyen de complétude: {self.df_clean['score_completude'].mean():.2f}%")
+        print(f"  • Annonces 100% complètes: {(self.df_clean['score_completude'] == 100).sum()}")
         
         # 7. Identifier les bonnes affaires (prix/m² inférieur à la médiane)
-        if 'prix_m2' in self.df_clean.columns:
+        if 'prix_m2' in self.df_clean.columns and self.df_clean['prix_m2'].notna().sum() > 0:
             mediane_prix_m2 = self.df_clean['prix_m2'].median()
             self.df_clean['bonne_affaire'] = self.df_clean['prix_m2'] < mediane_prix_m2
             nb_bonnes_affaires = self.df_clean['bonne_affaire'].sum()
             print(f"\n7. Bonnes affaires potentielles (prix/m² < médiane):")
             print(f"  • {nb_bonnes_affaires} annonces identifiées")
+        else:
+            self.df_clean['bonne_affaire'] = False
+            print(f"\n7. Impossible d'identifier les bonnes affaires (données de prix/m² manquantes)")
     
     def selectionner_colonnes_finales(self):
         """Sélectionner et ordonner les colonnes pour l'export"""
@@ -287,7 +382,15 @@ class CityaDataCleaner:
             'nb_chambres',
             'ville',
             'code_postal_clean',
-            
+            'departement',
+            'gamme_prix',
+            'gamme_surface',
+            'description',
+            'nb_photos_reel',
+            'score_completude',
+            'bonne_affaire',
+            'donnees_completes',
+            'date_extraction'
         ]
         
         # Ne garder que les colonnes qui existent
@@ -313,7 +416,7 @@ class CityaDataCleaner:
         print(f"  • Nombre de colonnes: {len(df_export.columns)}")
         print(f"  • Colonnes exportées: {', '.join(df_export.columns)}")
     
-    def generer_rapport(self, nom_fichier='rapport_analyse.txt'):
+    def generer_rapport(self, nom_fichier='./Rapport/rapport_analyse1.txt'):
         """Générer un rapport d'analyse complet"""
         print("\n" + "=" * 60)
         print("GÉNÉRATION DU RAPPORT")
@@ -391,10 +494,10 @@ class CityaDataCleaner:
         self.nettoyer_donnees()
         
         # 4. Gérer valeurs manquantes
-        #self.gerer_valeurs_manquantes()
+        self.gerer_valeurs_manquantes()
         
         # 5. Calculer statistiques
-        #self.calculer_statistiques()
+        self.calculer_statistiques()
         
         # 6. Exporter
         self.exporter_csv(fichier_csv)
@@ -408,11 +511,15 @@ class CityaDataCleaner:
         
         return True
 
+
+# ============================================================================
+# SCRIPT PRINCIPAL
+# ============================================================================
+
 if __name__ == '__main__':
-    # Configuration
-    FICHIER_JSON = r'citya_scrapy2.json' 
-    FICHIER_CSV_SORTIE = '../Pipeline_Immo/Data_Immo/Data_Init/citya_immobilier_clean.csv'
-    
+    # Configuration - Chemins relatifs depuis Script/Nettoyage/
+    FICHIER_JSON = INPUT_FILE 
+    FICHIER_CSV_SORTIE = OUTPUT_FILE
     # Créer l'instance du cleaner
     cleaner = CityaDataCleaner(FICHIER_JSON)
     
@@ -421,7 +528,7 @@ if __name__ == '__main__':
     
     if succes:
         print(f"\n✅ Fichier CSV propre disponible: {FICHIER_CSV_SORTIE}")
-        print(f"✅ Rapport d'analyse disponible: rapport_analyse.txt")
+        print(f"✅ Rapport d'analyse disponible: ../../Rapport/rapport_analyse.txt")
         
         # Afficher un aperçu des données nettoyées
         print("\n" + "=" * 60)

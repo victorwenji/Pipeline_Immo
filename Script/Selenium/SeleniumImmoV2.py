@@ -25,21 +25,18 @@ class CityaScraper:
         self.annonces = []
     
     def extraire_texte(self, element, selecteur):
-        """Extraire du texte en gérant les erreurs"""
         try:
             return element.find_element(By.CSS_SELECTOR, selecteur).text.strip()
         except (NoSuchElementException, AttributeError):
             return None
     
     def extraire_attribut(self, element, selecteur, attribut):
-        """Extraire un attribut en gérant les erreurs"""
         try:
             return element.find_element(By.CSS_SELECTOR, selecteur).get_attribute(attribut)
         except (NoSuchElementException, AttributeError):
             return None
     
     def generer_url_page(self, url_base, numero_page):
-        """Génère l'URL pour une page spécifique"""
         # Format Citya: ?page=2
         if '?' in url_base:
             # Si l'URL a déjà des paramètres, ajouter &page=
@@ -53,7 +50,6 @@ class CityaScraper:
             return f"{url_base}?page={numero_page}"
     
     def verifier_page_valide(self):
-        """Vérifie si la page contient des annonces"""
         selecteurs_annonces = [
             'a[href*="/annonces/"]',
             '.property-card',
@@ -74,10 +70,6 @@ class CityaScraper:
         return False, 0
     
     def scraper_page_liste_auto(self, url_base, max_pages=100):
-        """Scraper avec pagination automatique en générant les URLs"""
-        print(f"\n{'='*60}")
-        print(f"SCRAPING AVEC PAGINATION AUTOMATIQUE")
-        print(f"{'='*60}")
         print(f"URL de base: {url_base}")
         print(f"Pages maximum: {max_pages}")
         
@@ -92,10 +84,8 @@ class CityaScraper:
             else:
                 url_page = self.generer_url_page(url_base, page_num)
             
-            print(f"\n{'─'*60}")
             print(f"📄 PAGE {page_num}")
             print(f"🔗 URL: {url_page}")
-            print(f"{'─'*60}")
             
             try:
                 self.driver.get(url_page)
@@ -128,17 +118,15 @@ class CityaScraper:
                 
                 if not page_valide:
                     pages_vides_consecutives += 1
-                    print(f"⚠️  Page vide ou invalide ({pages_vides_consecutives}/{max_pages_vides})")
-                    
                     if pages_vides_consecutives >= max_pages_vides:
-                        print(f"\n🏁 {max_pages_vides} pages vides consécutives détectées")
+                        print(f"\n {max_pages_vides} pages vides consécutives détectées")
                         print("Fin de la pagination")
                         break
                     continue
                 
                 # Réinitialiser le compteur si la page contient des annonces
                 pages_vides_consecutives = 0
-                print(f"✅ {nb_elements} éléments trouvés sur la page")
+                print(f" {nb_elements} éléments trouvés sur la page")
                 
                 # Extraire les URLs des annonces
                 selecteurs_liens = [
@@ -168,8 +156,8 @@ class CityaScraper:
                     except:
                         continue
                 
-                print(f"🆕 {nouvelles_annonces} nouvelles annonces trouvées")
-                print(f"📊 Total cumulé: {len(urls_annonces)} annonces")
+                print(f" {nouvelles_annonces} nouvelles annonces trouvées")
+                print(f" Total cumulé: {len(urls_annonces)} annonces")
                 
                 # Si aucune nouvelle annonce, c'est peut-être la fin
                 if nouvelles_annonces == 0 and page_num > 1:
@@ -186,16 +174,13 @@ class CityaScraper:
                     break
                 continue
         
-        print(f"\n{'='*60}")
         print(f"✅ PAGINATION TERMINÉE")
         print(f"📊 {len(urls_annonces)} annonces uniques trouvées")
-        print(f"{'='*60}\n")
+        
         
         return list(urls_annonces)
     
     def scraper_annonce(self, url):
-        """Scraper une annonce individuelle"""
-        print(f"  📄 Scraping: {url}")
         try:
             self.driver.get(url)
             time.sleep(2)
@@ -288,11 +273,10 @@ class CityaScraper:
             print(f"    ❌ Erreur: {e}")
             return None
     
-    def scraper(self, url_base, max_pages=100, max_annonces=None):
-        """Fonction principale de scraping"""
-        print("\n" + "="*60)
+    def scraper(self, url_base, max_pages=500, max_annonces=None):
+        print("\n")
         print("🚀 DÉMARRAGE DU SCRAPING CITYA.COM")
-        print("="*60)
+        
         
         # 1. Récupérer les URLs des annonces avec pagination automatique
         urls_annonces = self.scraper_page_liste_auto(url_base, max_pages=max_pages)
@@ -309,9 +293,9 @@ class CityaScraper:
             print(f"🔒 Limitation à {max_annonces} annonces")
         
         # 2. Scraper chaque annonce
-        print(f"\n{'='*60}")
+        print(f"\n")
         print("📥 EXTRACTION DES DÉTAILS DES ANNONCES")
-        print(f"{'='*60}\n")
+        
         
         for i, url in enumerate(urls_annonces, 1):
             print(f"[{i}/{len(urls_annonces)}]", end=" ")
@@ -331,6 +315,7 @@ class CityaScraper:
         """Sauvegarder les données en JSON"""
         if nom_fichier is None:
             #nom_fichier = f'citya_annonces_{datetime.now().strftime("%Y%m%d_%H%M%S")}.json'
+            
             nom_fichier = f'citya_annonces.json'
         
         with open(nom_fichier, 'w', encoding='utf-8') as f:
@@ -358,14 +343,14 @@ if __name__ == '__main__':
             {
                 'url': 'https://www.citya.com/annonces/vente',
                 'nom': 'Ventes',
-                'max_pages': 2,  
-                'max_annonces': 10  
+                'max_pages': 150,  
+                'max_annonces': 10000  
             },
             {
                 'url': 'https://www.citya.com/annonces/location',
                 'nom': 'Locations',
-                'max_pages': 2,
-                'max_annonces': 10
+                'max_pages': 150,
+                'max_annonces': 10000
             },
         ]
         

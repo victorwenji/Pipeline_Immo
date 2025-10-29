@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super IMMO</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏠 Dashboard Annonces Citya</h1>
+            <p class="subtitle">Visualisation des annonces immobilières scrapées</p>
+        </header>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-label">Total Annonces</div>
+                <div class="stat-value">{{ stats.total }}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Prix Moyen</div>
+                <div class="stat-value">{{ stats.prix_moyen|format_prix }}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Surface Moyenne</div>
+                <div class="stat-value">{{ stats.surface_moyenne }} m²</div>
+            </div>
+            {% for type, count in stats.types.items() %}
+            <div class="stat-card">
+                <div class="stat-label">{{ type }}</div>
+                <div class="stat-value">{{ count }}</div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="filters">
+            <div class="filter-group">
+                <input type="text" id="filtreVille" class="filter-input" placeholder="🔍 Filtrer par ville...">
+                <select id="filtreType" class="filter-input">
+                    <option value="">Tous les types</option>
+                    <option value="Appartement">Appartement</option>
+                    <option value="Maison">Maison</option>
+                    <option value="Parking">Parking</option>
+                    <option value="Studio">Studio</option>
+                </select>
+                <input type="number" id="filtrePrixMin" class="filter-input" placeholder="Prix min (€)">
+                <input type="number" id="filtrePrixMax" class="filter-input" placeholder="Prix max (€)">
+                <button class="btn" onclick="appliquerFiltres()">Filtrer</button>
+                <button class="btn" onclick="reinitialiserFiltres()" style="background: #999;">Réinitialiser</button>
+            </div>
+        </div>
+
+        <div class="annonces-grid" id="annoncesGrid">
+            {% if annonces %}
+                {% for annonce in annonces %}
+                <div class="annonce-card" data-ville="{{ annonce.ville }}" data-type="{{ annonce.type_bien }}" data-prix="{{ annonce.prix_num }}">
+                    <div class="annonce-image">
+                        {% if annonce.photos and annonce.photos[0] %}
+                            <img src="{{ annonce.photos[0] }}" alt="{{ annonce.titre }}" onerror="this.parentElement.innerHTML='🏠'">
+                        {% else %}
+                            🏠
+                        {% endif %}
+                    </div>
+                    <div class="annonce-content">
+                        <span class="annonce-type">{{ annonce.type_bien }}</span>
+                        <h3 class="annonce-titre">{{ annonce.titre }}</h3>
+                        <p class="annonce-ville">📍 {{ annonce.ville }}</p>
+                        
+                        <div class="annonce-details">
+                            {% if annonce.surface > 0 %}
+                            <span class="detail-item">📏 {{ annonce.surface }} m²</span>
+                            {% endif %}
+                            {% if annonce.pieces > 0 %}
+                            <span class="detail-item">🛏️ {{ annonce.pieces }} pièces</span>
+                            {% endif %}
+                            {% if annonce.nombre_photos > 0 %}
+                            <span class="detail-item">📸 {{ annonce.nombre_photos }} photos</span>
+                            {% endif %}
+                        </div>
+
+                        <div class="annonce-prix">{{ annonce.prix }}</div>
+
+                        <div class="annonce-footer">
+                            {% if annonce.ges %}
+                            <span class="ges-badge">GES: {{ annonce.ges }}</span>
+                            {% else %}
+                            <span></span>
+                            {% endif %}
+                            <a href="{{ annonce.url }}" target="_blank" class="voir-plus">Voir l'annonce →</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="no-results">
+                    <p>😔 Aucune annonce disponible</p>
+                    <p style="font-size: 0.9em; margin-top: 10px;">Assurez-vous que le fichier annonces_scraping.json existe</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        function appliquerFiltres() {
+            const ville = document.getElementById('filtreVille').value.toLowerCase();
+            const type = document.getElementById('filtreType').value;
+            const prixMin = parseInt(document.getElementById('filtrePrixMin').value) || 0;
+            const prixMax = parseInt(document.getElementById('filtrePrixMax').value) || Infinity;
+
+            const cards = document.querySelectorAll('.annonce-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const cardVille = card.getAttribute('data-ville').toLowerCase();
+                const cardType = card.getAttribute('data-type');
+                const cardPrix = parseInt(card.getAttribute('data-prix'));
+
+                const matchVille = !ville || cardVille.includes(ville);
+                const matchType = !type || cardType === type;
+                const matchPrix = cardPrix >= prixMin && cardPrix <= prixMax;
+
+                if (matchVille && matchType && matchPrix) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (visibleCount === 0) {
+                document.getElementById('annoncesGrid').innerHTML = '<div class="no-results">😔 Aucune annonce ne correspond à vos critères</div>';
+            }
+        }
+
+        function reinitialiserFiltres() {
+            document.getElementById('filtreVille').value = '';
+            document.getElementById('filtreType').value = '';
+            document.getElementById('filtrePrixMin').value = '';
+            document.getElementById('filtrePrixMax').value = '';
+            
+            const cards = document.querySelectorAll('.annonce-card');
+            cards.forEach(card => {
+                card.style.display = 'block';
+            });
+        }
+
+        // Filtrage en temps réel sur la ville
+        document.getElementById('filtreVille').addEventListener('input', appliquerFiltres);
+    </script>
+</body>
+</html>

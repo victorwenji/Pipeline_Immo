@@ -1,0 +1,62 @@
+name: Pipeline scraping -> nettoyage -> push CSV
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "0 6 * * *"   
+  push:
+    paths-ignore:
+      - "**.csv"          # éviter de relancer juste à cause du CSV
+
+permissions:
+  contents: write         # nécessaire pour pousser avec GITHUB_TOKEN
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0         # utile si tu dois re-écrire l’historique du CSV
+          # persist-credentials: true  # (par défaut) garde le token pour git push
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        if: hashFiles('requirements.txt') != ''
+        run: pip install -r requirements.txt
+
+      - name: Run scraping
+        run: python Script\Selenium\SeleniumImmoV2.py
+        
+
+      - name: Run cleaning
+        run: python Script\Nettoyage\cleanerImmo.py
+    
+      - name: Configure git author
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      
+      - name: Commit CSV if changed
+        id: commit
+        run: |
+          git add Data_Cleaner/*.csv
+          if git diff --cached --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            git commit -m "chore(Data_Cleaner): update CSV [skip ci]"
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Push
+        if: steps.commit.outputs.changed == 'true'
+        run: |
+          # le checkout garde GITHUB_TOKEN comme credential
+          git push origin HEAD:${GITHUB_REF#refs/heads/}

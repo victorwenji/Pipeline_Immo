@@ -1,50 +1,34 @@
-﻿url,titre,prix_num,ville
-https://www.citya.com/annonces/vente/appartement/cholet-49300/TAPP957834,"Appartement à vendre 3 pièces 50m²
- Cholet (49300)",93.0,Cholet (49300)
-https://www.citya.com/annonces/vente/maison/vouille-79230/TMAI153182A,"Maison à vendre 7 pièces 160m²
- Vouillé (79230)",253.0,Vouillé (79230)
-https://www.citya.com/annonces/vente/appartement/orleans-45234/TAPP287-954555,"Appartement à vendre 3 pièces 68.51m²
- Orléans (45100)",77.0,Orléans (45100)
-https://www.citya.com/annonces/vente/appartement/tours-37261/TAPP924141A,"Appartement à vendre 3 pièces 71m²
- Tours (37200)",225.0,Tours (37200)
-https://www.citya.com/annonces/vente/appartement/beziers-34500/TAPP958560,"Appartement à vendre 2 pièces 41m²
- Béziers (34500)",80.0,Béziers (34500)
-https://www.citya.com/annonces/vente/appartement/chatellerault-86100/TAPP956876,"Appartement à vendre 3 pièces 69.07m²
- Châtellerault (86100)",99.0,Châtellerault (86100)
-https://www.citya.com/annonces/vente/maison/olivet-45160/TMAI287-954582,"Maison à vendre 7 pièces 191m²
- Olivet (45160)",450.0,Olivet (45160)
-https://www.citya.com/annonces/vente/appartement/niort-79000/TAPP954951,"Appartement à vendre 2 pièces 48m²
- Niort (79000)",105.0,Niort (79000)
-https://www.citya.com/annonces/vente/maison/chateauroux-36000/TMAI153002,"Maison à vendre 5 pièces 111m²
- Châteauroux (36000)",164.0,Châteauroux (36000)
+﻿url,titre,prix_num,ville,gamme_prix,score_completude,bonne_affaire,donnees_completes,date_extraction
+https://www.citya.com/annonces/vente/appartement/bordeaux-33063/TAPP923582,"Appartement à vendre 2 pièces 41m²
+ Bordeaux (33000)",163.0,Bordeaux (33000),< 150k€,100.0,False,True,2025-10-28T10:58:50.878020
+https://www.citya.com/annonces/vente/ile-de-france-11,Achat/vente immobilière Île-de-France,,Non renseigné,,50.0,False,False,2025-10-28T10:58:57.134635
+https://www.citya.com/annonces/vente/tours-37261,Achat/vente immobilière Tours (37),,Non renseigné,,50.0,False,False,2025-10-28T10:59:03.779551
+https://www.citya.com/annonces/vente/maison/assay-37120/TMAI155556,"Maison à vendre 3 pièces 86.5m²
+ Assay (37120)",183.0,Assay (37120),< 150k€,100.0,False,True,2025-10-28T10:59:09.763631
+https://www.citya.com/annonces/vente/appartement/poitiers-86000/TAPP948717,"Appartement à vendre 1 pièce 40m²
+ Poitiers (86000)",77.0,Poitiers (86000),< 150k€,100.0,False,True,2025-10-28T10:59:15.878677
+https://www.citya.com/annonces/vente/appartement/sete-34200/TAPP959141,"Appartement à vendre 3 pièces 67m²
+ Sète (34200)",177.0,Sète (34200),< 150k€,100.0,False,True,2025-10-28T10:59:22.049193
+https://www.citya.com/annonces/vente/appartement/nantes-44109/TAPP959129,"Appartement à vendre 3 pièces 58.28m²
+ Nantes (44100)",135.0,Nantes (44100),< 150k€,100.0,False,True,2025-10-28T10:59:28.699740
 https://www.citya.com/annonces/vente/appartement/seloncourt-25230/TAPP953954,"Appartement à vendre 2 pièces 48.22m²
- Seloncourt (25230)",66.0,Seloncourt (25230)
-https://www.citya.com/annonces/vente/appartement/tours-37261/TAPP948224,"Appartement à vendre 4 pièces 86.75m²
- Tours (37000)",300.0,Tours (37000)
-https://www.citya.com/annonces/vente/appartement/saint-maximin-60740/TAPP923679,"Appartement à vendre 3 pièces 59.86m²
- Saint-Maximin (60740)",150.0,Saint-Maximin (60740)
-https://www.citya.com/annonces/vente/appartement/sete-34200/TAPP958606,"Appartement à vendre 1 pièce 26.91m²
- Sète (34200)",92.0,Sète (34200)
-https://www.citya.com/annonces/vente/appartement/pau-64445/TAPP495704,"Appartement à vendre 2 pièces 66.5m²
- Pau (64000)",103.0,Pau (64000)
-https://www.citya.com/annonces/vente/maison/avoine-37420/TMAI147136,"Maison à vendre 5 pièces 97.8m²
- Avoine (37420)",265.0,Avoine (37420)
-https://www.citya.com/annonces/vente/maison/cholet-49300/TMAI154806,"Maison à vendre 5 pièces 90m²
- Cholet (49300)",256.0,Cholet (49300)
-https://www.citya.com/annonces/vente/appartement/agen-47000/TAPP944510,"Appartement à vendre 2 pièces 55m²
- Agen (47000)",104.0,Agen (47000)
-https://www.citya.com/annonces/vente/appartement/toulouse-31555/TAPP527918,"Appartement à vendre 1 pièce 31.34m²
- Toulouse (31100)",60.0,Toulouse (31100)
-https://www.citya.com/annonces/vente/appartement/villeneuve-les-beziers-34336/TAPP939924,"Appartement à vendre 3 pièces 58.35m²
- Villeneuve-lès-Béziers (34420)",138.0,Villeneuve-lès-Béziers (34420)
-https://www.citya.com/annonces/vente/maison/tours-37261/TMAI149181,"Maison à vendre 6 pièces 132m²
- Tours (37100)",385.0,Tours (37100)
-https://www.citya.com/annonces/vente/appartement/chatellerault-86100/TAPP958602,"Appartement à vendre 3 pièces 84.9m²
- Châtellerault (86100)",130.0,Châtellerault (86100)
-https://www.citya.com/annonces/vente/maison/eybens-38320/TMAI155417,"Maison à vendre 5 pièces 112.12m²
- Eybens (38320)",270.0,Eybens (38320)
-https://www.citya.com/immobilier/nos-guides/location/maison-ancienne,Maison ancienne,,
-https://www.citya.com/annonces/vente/appartement/nice-06088/TAPP950014,"Appartement à vendre 4 pièces 82m²
- Nice (06000)",350.0,Nice (06000)
-https://www.citya.com/annonces/vente/appartement/cannes-06029/TAPP511897,"Appartement à vendre 2 pièces 44m²
- Cannes (06400)",198.0,Cannes (06400)
+ Seloncourt (25230)",66.0,Seloncourt (25230),< 150k€,100.0,False,True,2025-10-28T10:59:34.853070
+https://www.citya.com/annonces/vente/rouen-76540,Achat/vente immobilière Rouen (76),,Non renseigné,,50.0,False,False,2025-10-28T10:59:40.988351
+https://www.citya.com/annonces/vente/appartement/roquebrune-cap-martin-06190/TAPP924489,"Appartement à vendre 2 pièces 46.56m²
+ Roquebrune-Cap-Martin (06190)",262.0,Roquebrune-Cap-Martin (06190),< 150k€,100.0,False,True,2025-10-28T10:59:47.179691
+https://www.citya.com/annonces/location/normandie-28,Location immobilière Normandie,,Non renseigné,,50.0,False,False,2025-10-28T11:00:06.164928
+https://www.citya.com/annonces/location/appartement/maisons-alfort-94700/GES03500021-478,"Appartement à louer 2 pièces 39.02m²
+ Maisons-Alfort (94700)",934.06,Maisons-Alfort (94700),< 150k€,100.0,False,True,2025-10-28T11:00:11.778045
+https://www.citya.com/annonces/location/appartement/le-havre-76351/GES89110309-78,"Appartement à louer 1 pièce 26.03m²
+ Le Havre (76600)",510.0,Le Havre (76600),< 150k€,100.0,False,True,2025-10-28T11:00:17.569994
+https://www.citya.com/annonces/location/appartement/toulouse-31555/GES85750011-297,"Appartement à louer 2 pièces 42.01m²
+ Toulouse (31200)",565.83,Toulouse (31200),< 150k€,100.0,False,True,2025-10-28T11:00:23.271251
+https://www.citya.com/annonces/location/provence-alpes-cote-dazur-93,Location immobilière Provence-Alpes-Côte d'Azur,,Non renseigné,,50.0,False,False,2025-10-28T11:00:29.372381
+https://www.citya.com/annonces/location/marseille-13000,Location immobilière Marseille (13),,Non renseigné,,50.0,False,False,2025-10-28T11:00:35.206226
+https://www.citya.com/annonces/location/appartement/lyon-3e-arrondissement-69003/GES51070013-184,"Appartement à louer 2 pièces 42.61m²
+ Lyon 3e Arrondissement (69003)",656.0,Lyon 3e Arrondissement (69003),< 150k€,100.0,False,True,2025-10-28T11:00:40.861903
+https://www.citya.com/annonces/location/orleans-45234,Location immobilière Orléans (45),,Non renseigné,,50.0,False,False,2025-10-28T11:00:47.096069
+https://www.citya.com/annonces/location/appartement/bourg-en-bresse-01000/GES28260052-218,"Appartement à louer 1 pièce 23.16m²
+ Bourg-en-Bresse (01000)",429.0,Bourg-en-Bresse (01000),< 150k€,100.0,False,True,2025-10-28T11:00:52.640229
+https://www.citya.com/annonces/location/appartement/irigny-69540/GES19570004-746,"Appartement à louer 3 pièces 82.37m²
+ Irigny (69540)",925.0,Irigny (69540),< 150k€,100.0,False,True,2025-10-28T11:00:58.238559

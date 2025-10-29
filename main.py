@@ -3,5 +3,4 @@
 
 #Ce script permet de:
 #1. Scraper les données depuis Citya.com
-#2. Nettoyer et analyser les données
-#3. Générer les rapports
+#2. Nettoyer et analyser les données et Générer les rapports

@@ -25,3 +25,5 @@ pip install pandas numpy
     -> pour les calcule et le traitement de la données
 
     //je narrive pas a acceder a la deuxiemme page su site et jai un total de 50 annonce reccuperer {location et vente}
+
+pip install flask
