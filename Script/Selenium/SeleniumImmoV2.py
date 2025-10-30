@@ -8,7 +8,6 @@ import json
 import time
 from datetime import datetime
 
-
 class CityaScraper:
     def __init__(self, headless=True):
         # Configuration Chrome

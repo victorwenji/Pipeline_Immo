@@ -43,9 +43,7 @@ jobs:
           sudo apt-get install -y google-chrome-stable
 
       - name: Run scraping
-        env:
-          # pour forcer le headless si nécessaire dans ton code
-          #CHROME_BIN: /usr/bin/google-chrome
+          
         run: python Script/Selenium/SeleniumImmoV2.py
 
       - name: Run cleaning
