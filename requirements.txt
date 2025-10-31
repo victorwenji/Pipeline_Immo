@@ -2,4 +2,3 @@ selenium>=4.24
 webdriver-manager>=4.0
 pandas>=2.2
 flask
-csv
