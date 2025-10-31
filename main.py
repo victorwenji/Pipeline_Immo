@@ -917,4 +917,4 @@ if __name__ == '__main__':
         print("\n⚠️  ATTENTION: Aucun fichier CSV trouvé!")
         print("   Placez votre fichier CSV dans le même dossier que app.py\n")
     
-    app.run(debug=True, host='0.0.0.0', port=5001)
+    app.run(debug=True, host='0.0.0.0')
