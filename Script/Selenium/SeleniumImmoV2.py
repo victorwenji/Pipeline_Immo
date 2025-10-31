@@ -342,14 +342,14 @@ if __name__ == '__main__':
             {
                 'url': 'https://www.citya.com/annonces/vente',
                 'nom': 'Ventes',
-                'max_pages': 20,  
-                'max_annonces': 10000  
+                'max_pages': 15,  
+                'max_annonces': 250
             },
             {
                 'url': 'https://www.citya.com/annonces/location',
                 'nom': 'Locations',
-                'max_pages': 20,
-                'max_annonces': 10000
+                'max_pages': 15,
+                'max_annonces': 250
             },
         ]
         

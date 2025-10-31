@@ -1,31 +1,222 @@
+from flask import Flask, render_template_string
+import csv
+import os
+import glob
+
+app = Flask(__name__)
+
+# Template HTML intégré
+TEMPLATE = """
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super IMMO</title>
+    <title>Annonces Citya</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 { color: #667eea; font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { color: #666; font-size: 1.1em; }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin: 10px 0;
+        }
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .filters {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .filter-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .filter-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+        .filter-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .btn {
+            padding: 12px 30px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn:hover { background: #5568d3; }
+        .annonces-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        .annonce-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .annonce-card:hover { transform: translateY(-5px); }
+        .annonce-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3em;
+        }
+        .annonce-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .annonce-content { padding: 20px; }
+        .annonce-type {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #667eea;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .annonce-titre {
+            font-size: 1.1em;
+            color: #333;
+            margin: 10px 0;
+            font-weight: 600;
+            line-height: 1.4;
+            min-height: 60px;
+        }
+        .annonce-ville {
+            color: #666;
+            margin: 5px 0;
+            font-size: 0.95em;
+        }
+        .annonce-details {
+            display: flex;
+            gap: 15px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #666;
+            font-size: 0.9em;
+        }
+        .annonce-prix {
+            font-size: 1.8em;
+            color: #667eea;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        .annonce-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+        }
+        .voir-plus {
+            padding: 10px 25px;
+            background: #764ba2;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        .voir-plus:hover { background: #5d3a7d; }
+        .no-results {
+            text-align: center;
+            padding: 50px;
+            background: white;
+            border-radius: 15px;
+            color: #666;
+        }
+        @media (max-width: 768px) {
+            .annonces-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 1.8em; }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>🏠 Dashboard Annonces Citya</h1>
-            <p class="subtitle">Visualisation des annonces immobilières scrapées</p>
+            <p class="subtitle">{{ total_annonces }} annonces trouvées</p>
         </header>
 
+        {% if total_annonces > 0 %}
         <div class="stats">
             <div class="stat-card">
                 <div class="stat-label">Total Annonces</div>
-                <div class="stat-value">{{ stats.total }}</div>
+                <div class="stat-value">{{ total_annonces }}</div>
             </div>
             <div class="stat-card">
                 <div class="stat-label">Prix Moyen</div>
-                <div class="stat-value">{{ stats.prix_moyen|format_prix }}</div>
+                <div class="stat-value">{{ prix_moyen }} €</div>
             </div>
+            {% if surface_moyenne > 0 %}
             <div class="stat-card">
                 <div class="stat-label">Surface Moyenne</div>
-                <div class="stat-value">{{ stats.surface_moyenne }} m²</div>
+                <div class="stat-value">{{ surface_moyenne }} m²</div>
             </div>
-            {% for type, count in stats.types.items() %}
+            {% endif %}
+            {% for type, count in types_biens.items() %}
             <div class="stat-card">
                 <div class="stat-label">{{ type }}</div>
                 <div class="stat-value">{{ count }}</div>
@@ -38,10 +229,9 @@
                 <input type="text" id="filtreVille" class="filter-input" placeholder="🔍 Filtrer par ville...">
                 <select id="filtreType" class="filter-input">
                     <option value="">Tous les types</option>
-                    <option value="Appartement">Appartement</option>
-                    <option value="Maison">Maison</option>
-                    <option value="Parking">Parking</option>
-                    <option value="Studio">Studio</option>
+                    {% for type in types_biens.keys() %}
+                    <option value="{{ type }}">{{ type }}</option>
+                    {% endfor %}
                 </select>
                 <input type="number" id="filtrePrixMin" class="filter-input" placeholder="Prix min (€)">
                 <input type="number" id="filtrePrixMax" class="filter-input" placeholder="Prix max (€)">
@@ -51,53 +241,50 @@
         </div>
 
         <div class="annonces-grid" id="annoncesGrid">
-            {% if annonces %}
-                {% for annonce in annonces %}
-                <div class="annonce-card" data-ville="{{ annonce.ville }}" data-type="{{ annonce.type_bien }}" data-prix="{{ annonce.prix_num }}">
-                    <div class="annonce-image">
-                        {% if annonce.photos and annonce.photos[0] %}
-                            <img src="{{ annonce.photos[0] }}" alt="{{ annonce.titre }}" onerror="this.parentElement.innerHTML='🏠'">
-                        {% else %}
-                            🏠
+            {% for annonce in annonces %}
+            <div class="annonce-card" data-ville="{{ annonce.ville }}" data-type="{{ annonce.type_bien }}" data-prix="{{ annonce.prix_euros }}">
+                <div class="annonce-image">
+                    {% if annonce.photo %}
+                        <img src="{{ annonce.photo }}" alt="{{ annonce.titre }}" onerror="this.parentElement.innerHTML='🏠'">
+                    {% else %}
+                        🏠
+                    {% endif %}
+                </div>
+                <div class="annonce-content">
+                    <span class="annonce-type">{{ annonce.type_bien }}</span>
+                    <h3 class="annonce-titre">{{ annonce.titre }}</h3>
+                    <p class="annonce-ville">📍 {{ annonce.ville }}</p>
+                    
+                    <div class="annonce-details">
+                        {% if annonce.surface_m2 %}
+                        <span class="detail-item">📏 {{ annonce.surface_m2 }} m²</span>
+                        {% endif %}
+                        {% if annonce.nombre_pieces %}
+                        <span class="detail-item">🛏️ {{ annonce.nombre_pieces }} pièces</span>
                         {% endif %}
                     </div>
-                    <div class="annonce-content">
-                        <span class="annonce-type">{{ annonce.type_bien }}</span>
-                        <h3 class="annonce-titre">{{ annonce.titre }}</h3>
-                        <p class="annonce-ville">📍 {{ annonce.ville }}</p>
-                        
-                        <div class="annonce-details">
-                            {% if annonce.surface > 0 %}
-                            <span class="detail-item">📏 {{ annonce.surface }} m²</span>
-                            {% endif %}
-                            {% if annonce.pieces > 0 %}
-                            <span class="detail-item">🛏️ {{ annonce.pieces }} pièces</span>
-                            {% endif %}
-                            {% if annonce.nombre_photos > 0 %}
-                            <span class="detail-item">📸 {{ annonce.nombre_photos }} photos</span>
-                            {% endif %}
-                        </div>
 
-                        <div class="annonce-prix">{{ annonce.prix }}</div>
+                    <div class="annonce-prix">{{ annonce.prix_display }}</div>
 
-                        <div class="annonce-footer">
-                            {% if annonce.ges %}
-                            <span class="ges-badge">GES: {{ annonce.ges }}</span>
-                            {% else %}
-                            <span></span>
-                            {% endif %}
-                            <a href="{{ annonce.url }}" target="_blank" class="voir-plus">Voir l'annonce →</a>
-                        </div>
+                    <div class="annonce-footer">
+                        <a href="{{ annonce.url }}" target="_blank" class="voir-plus">Voir l'annonce →</a>
                     </div>
                 </div>
-                {% endfor %}
-            {% else %}
-                <div class="no-results">
-                    <p>😔 Aucune annonce disponible</p>
-                    <p style="font-size: 0.9em; margin-top: 10px;">Assurez-vous que le fichier annonces_scraping.json existe</p>
-                </div>
-            {% endif %}
+            </div>
+            {% endfor %}
         </div>
+        {% else %}
+        <div class="no-results">
+            <h2>😔 Aucune annonce trouvée</h2>
+            <p>Vérifiez que le fichier CSV existe dans le même dossier que app.py</p>
+            <p><strong>Fichiers CSV recherchés :</strong></p>
+            <ul style="list-style: none; margin-top: 10px;">
+                <li>✓ annonces_nettoyees.csv</li>
+                <li>✓ citya_*.csv</li>
+                <li>✓ *.csv</li>
+            </ul>
+        </div>
+        {% endif %}
     </div>
 
     <script>
@@ -144,8 +331,156 @@
             });
         }
 
-        // Filtrage en temps réel sur la ville
         document.getElementById('filtreVille').addEventListener('input', appliquerFiltres);
     </script>
 </body>
 </html>
+"""
+
+def trouver_fichier_csv():
+    """Trouve automatiquement le fichier CSV d'annonces"""
+    patterns = [
+        'annonces_nettoyees.csv',
+        'citya_*.csv',
+        'annonces_*.csv',
+        '*.csv'
+    ]
+    
+    for pattern in patterns:
+        fichiers = glob.glob(pattern)
+        if fichiers:
+            fichier = max(fichiers, key=os.path.getmtime)
+            print(f"✅ Fichier CSV trouvé: {fichier}")
+            return fichier
+    
+    print("❌ Aucun fichier CSV trouvé")
+    return None
+
+def charger_annonces_csv():
+    """Charge les annonces depuis le fichier CSV"""
+    fichier = trouver_fichier_csv()
+    if not fichier:
+        return []
+    
+    try:
+        annonces = []
+        with open(fichier, 'r', encoding='utf-8-sig') as f:
+            # Détecter le séparateur
+            premiere_ligne = f.readline()
+            f.seek(0)
+            separateur = ';' if ';' in premiere_ligne else ','
+            
+            reader = csv.DictReader(f, delimiter=separateur)
+            for row in reader:
+                annonces.append(row)
+        
+        print(f"✅ {len(annonces)} annonces chargées depuis {fichier}")
+        return annonces
+    except Exception as e:
+        print(f"❌ Erreur chargement CSV: {e}")
+        return []
+
+def nettoyer_valeur(valeur):
+    """Nettoie une valeur (gère None, NaN, etc.)"""
+    if valeur is None or valeur == '' or str(valeur).lower() in ['nan', 'none', 'null']:
+        return None
+    return str(valeur).strip()
+
+def format_prix(prix):
+    """Formate un prix pour l'affichage"""
+    try:
+        prix_num = int(float(prix))
+        return f"{prix_num:,}".replace(',', ' ') + " €"
+    except:
+        return str(prix)
+
+@app.route('/')
+def index():
+    """Page d'accueil"""
+    annonces_brutes = charger_annonces_csv()
+    
+    if not annonces_brutes:
+        return render_template_string(
+            TEMPLATE,
+            annonces=[],
+            total_annonces=0,
+            prix_moyen='0',
+            surface_moyenne=0,
+            types_biens={}
+        )
+    
+    # Traiter les annonces
+    annonces = []
+    prix_list = []
+    surface_list = []
+    types_count = {}
+    
+    for row in annonces_brutes:
+        # Adapter les noms de colonnes (flexible)
+        annonce = {
+            'url': nettoyer_valeur(row.get('url', '')),
+            'titre': nettoyer_valeur(row.get('titre_original') or row.get('titre', 'Sans titre')),
+            'ville': nettoyer_valeur(row.get('ville', 'Ville inconnue')),
+            'code_postal': nettoyer_valeur(row.get('code_postal', '')),
+            'type_bien': nettoyer_valeur(row.get('type_bien', 'Autre')),
+            'prix_euros': nettoyer_valeur(row.get('prix_euros') or row.get('prix', '0')),
+            'surface_m2': nettoyer_valeur(row.get('surface_m2', '')),
+            'nombre_pieces': nettoyer_valeur(row.get('nombre_pieces', '')),
+            'photo': nettoyer_valeur(row.get('url_photo_principale') or row.get('photo', ''))
+        }
+        
+        # Format d'affichage du prix
+        try:
+            prix_num = int(float(annonce['prix_euros']))
+            annonce['prix_display'] = format_prix(prix_num)
+            if prix_num > 0:
+                prix_list.append(prix_num)
+        except:
+            annonce['prix_display'] = 'Prix non disponible'
+        
+        # Surface
+        try:
+            if annonce['surface_m2']:
+                surface = float(annonce['surface_m2'])
+                if surface > 0:
+                    surface_list.append(surface)
+        except:
+            pass
+        
+        # Compter les types
+        type_bien = annonce['type_bien'] or 'Autre'
+        types_count[type_bien] = types_count.get(type_bien, 0) + 1
+        
+        annonces.append(annonce)
+    
+    # Calculer les stats
+    prix_moyen = int(sum(prix_list) / len(prix_list)) if prix_list else 0
+    surface_moyenne = int(sum(surface_list) / len(surface_list)) if surface_list else 0
+    
+    return render_template_string(
+        TEMPLATE,
+        annonces=annonces,
+        total_annonces=len(annonces),
+        prix_moyen=f"{prix_moyen:,}".replace(',', ' '),
+        surface_moyenne=surface_moyenne,
+        types_biens=types_count
+    )
+
+if __name__ == '__main__':
+    print("\n" + "="*60)
+    print("🚀 DÉMARRAGE DE L'APPLICATION FLASK (CSV)")
+    print("="*60)
+    print("\n📂 Recherche du fichier CSV...")
+    
+    fichier = trouver_fichier_csv()
+    if fichier:
+        print(f"\n✅ Application prête!")
+        print(f"\n🌐 Ouvrez votre navigateur sur:")
+        print(f"   👉 http://localhost:5000")
+        print(f"   👉 http://127.0.0.1:5000")
+        print("\n⏹️  Pour arrêter: Ctrl+C\n")
+    else:
+        print("\n⚠️  ATTENTION: Aucun fichier CSV trouvé!")
+        print("   Placez votre fichier CSV dans le même dossier que app.py\n")
+    
+    app.run(debug=True, host='0.0.0.0', port=5000)
