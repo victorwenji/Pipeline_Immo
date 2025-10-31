@@ -2,8 +2,8 @@ name: Pipeline_immo
 
 on:
   workflow_dispatch: {}
-  schedule:
-    - cron: "0 6 * * *"
+  #schedule:
+    #- cron: "0 6 * * *"
   push:
     paths-ignore:
       - "**.csv"
@@ -33,14 +33,14 @@ jobs:
           pip install -r requirements.txt
 
       # Chrome stable (utile si ton script n'utilise pas webdriver-manager)
-      - name: Install Google Chrome
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y wget gnupg
-          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /usr/share/keyrings/google-linux-signing-keyring.gpg
-          echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-linux-signing-keyring.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
+      #- name: Install Google Chrome
+       # run: |
+        #  sudo apt-get update
+         # sudo apt-get install -y wget gnupg
+          #wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /usr/share/keyrings/google-linux-signing-keyring.gpg
+          #echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-linux-signing-keyring.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+          #sudo apt-get update
+          #sudo apt-get install -y google-chrome-stable
 
       - name: Run scraping
           
